@@ -7,37 +7,9 @@ import {AppareilService} from './services/appareil.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  isAuth = false;
-
-  lastUpdate = new Promise(
-    (resolve, reject) => {
-      const date = new Date();
-      setTimeout(
-        () => {
-          resolve(date);
-        }, 2000
-      );
-    }
-  );
-
-  appareils: any[];
-
-  constructor(private appareilService: AppareilService) {
-    setTimeout(
-      () => {
-        this.isAuth = true;
-      }, 4000
-    );
-  }
-  ngOnInit() {
-    this.appareils = this.appareilService.appareils;
+  constructor() {
   }
 
-  onAllumer() {
-    this.appareilService.switchOnAll();
+  ngOnInit(): void {
   }
-  onEteindre() {
-    this.appareilService.switchOffAll();
-  }
-
 }
