@@ -21,6 +21,7 @@ export class EditAppareilComponent implements OnInit {
     const name = form.value.name;
     const status = form.value.status;
     this.appareilService.addAppareil(name, status);
+    this.appareilService.saveAppareilsToServer();
     this.router.navigate(['/appareils']);
   }
 }
